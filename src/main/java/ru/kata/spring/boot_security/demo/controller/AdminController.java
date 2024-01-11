@@ -42,11 +42,7 @@ public class AdminController {
     }
 
     @PostMapping("/edit")
-    public String edit(@ModelAttribute("user") User user, BindingResult bindingResult,
-                       @RequestParam("id") Long id) {
-        if (!bindingResult.hasErrors()) {
-            service.updateUser(user, id);
-        }
+    public String edit(@ModelAttribute("user") User user, @RequestParam("id") Long id) {
         service.updateUser(user, id);
         return "redirect:/admin";
     }
